@@ -9,6 +9,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 /**
@@ -22,6 +23,12 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("TelaPrincipal.fxml"));
         
         Scene scene = new Scene(root);
+        
+        //Icone da Janela
+        stage.getIcons().add(new Image("/ui/imagens/icone.png"));
+        
+        //Janela extendida
+        stage.setMaximized(true);
         
         stage.setScene(scene);
         stage.show();
