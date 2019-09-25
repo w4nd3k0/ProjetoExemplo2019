@@ -13,7 +13,7 @@ import javax.persistence.EntityManager;
  *
  * @author IFNMG
  */
-public class TesteBuscaAtor {
+public class TestaRemoverAtor {
     
     public static void main(String[] args) {
         
@@ -23,10 +23,17 @@ public class TesteBuscaAtor {
         //Buscando um ator pelo ID
         Ator a = Gerenciador.find(Ator.class, 1);
         
-        //Impimir nome do ator
-        System.out.println("Nome: " + a.getNome_Ator());
+        //Inciar a transação
+        Gerenciador.getTransaction().begin();
+        
+        //Remover Ator
+        Gerenciador.remove(a);
+        
+        //Comit na transação
+        Gerenciador.getTransaction().commit();        
         
         //Fechar Gerenenciado
         Gerenciador.close();
-    } 
+    }
+    
 }
