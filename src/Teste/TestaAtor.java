@@ -6,6 +6,7 @@
 package Teste;
 
 import Dados.Entidades.Ator;
+import Util.JPAUtil;
 import javax.persistence.*;
 
 /**
@@ -18,13 +19,12 @@ public class TestaAtor {
         //Testando a criação da tabela ator
     
         //Pegando ogerenciador de acesso ao BD
-        EntityManager Gerenciador = Persistence.createEntityManagerFactory("projeto").createEntityManager();
+        EntityManager Gerenciador = JPAUtil.getGerenciador();
         
         //Criando um Objeto Ator
         Ator a1 = new Ator();
         a1.setNome_Ator("Carla");
-        
-        
+                
         //Iniciar a transação
         Gerenciador.getTransaction().begin();
         
