@@ -5,6 +5,7 @@
  */
 package Teste;
 
+import Dados.Entidades.Ator;
 import javax.persistence.*;
 
 /**
@@ -18,8 +19,23 @@ public class TestaAtor {
     
         //Pegando ogerenciador de acesso ao BD
         EntityManager Gerenciador = Persistence.createEntityManagerFactory("projeto").createEntityManager();
-    
+        
+        //Criando um Objeto Ator
+        Ator a1 = new Ator();
+        a1.setNome_Ator("Carla");
+        
+        
+        //Iniciar a transação
+        Gerenciador.getTransaction().begin();
+        
+        //Alteração que eu quero que ocorra no BD
+        Gerenciador.persist(a1);
+        
+        //Finalizando a transação
+        Gerenciador.getTransaction().commit();
+        
+        //Fechar o gerenciado
+        Gerenciador.close();
+        
     }
-    
-
 }
