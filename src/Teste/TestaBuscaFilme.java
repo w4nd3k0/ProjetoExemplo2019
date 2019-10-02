@@ -5,7 +5,6 @@
  */
 package Teste;
 
-import Dados.Entidades.Ator;
 import Dados.Entidades.Filme;
 import Util.JPAUtil;
 import javax.persistence.EntityManager;
