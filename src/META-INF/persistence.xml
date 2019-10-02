@@ -14,11 +14,13 @@
         
         <!-- Classe Ator -->
         <class>Dados.Entidade.Ator</class>
-        
+                
         <!-- Classe Filme -->
+        <class>Dados.Entidade.Genero</class>
         
         <!-- Classe Genero -->
-         
+        <class>Dados.Entidade.Filme</class> 
+        
         <properties>    
             <!-- Driver de Acesso ao BD -->
             <property name="javax.persistence.jdbc.driver" 

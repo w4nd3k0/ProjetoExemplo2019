@@ -22,6 +22,7 @@ public class Ator {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer Id_Ator;
+    
     private String Nome_Ator;
 
     @Override
