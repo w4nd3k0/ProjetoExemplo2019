@@ -8,11 +8,14 @@ package Dados.Entidades;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 /**
@@ -32,12 +35,16 @@ public class Filme {
     private LocalDate Lancamento_Filme;
     private BigDecimal Arecadacao_Filme;
     
-    //Relacionamenteo um para um
+    //Relacionamenteo Varios Filmes para um Genero ManyToOne(optional = false)
+    //Relacionamento Um para um @OneToOne(optional = false)
     //Optional false genero não pode ser nulo
-    @OneToOne(optional = false)
+    @ManyToOne(optional = false)
     private Genero genero;
-    //private ArrayList<Ator> Atores;
-
+    
+    //Relacionamento n para n 
+    @ManyToMany
+    private List<Ator> Atores = new ArrayList<Ator>();
+    
     @Override
     public int hashCode() {
         int hash = 7;
@@ -85,11 +92,10 @@ public class Filme {
         return genero;
     }
     
-    /*
-    public ArrayList<Ator> getAtores() {
+    public List<Ator> getAtores() {
         return Atores;
     }
-    */
+    
     //Set's
     
     public void setId_Filme(Integer Id_Filme) {
@@ -112,9 +118,7 @@ public class Filme {
         this.genero = genero;
     }
     
-    /*
-    public void setAtores(ArrayList<Ator> Atores) {
+    public void setAtores(List<Ator> Atores) {
         this.Atores = Atores;
     }
-    */
 }

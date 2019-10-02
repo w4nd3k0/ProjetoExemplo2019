@@ -6,36 +6,41 @@
 package Teste;
 
 import Dados.Entidades.Ator;
+import Dados.Entidades.Filme;
 import Util.JPAUtil;
-import javax.persistence.*;
+import javax.persistence.EntityManager;
 
 /**
  *
  * @author IFNMG
  */
-public class TestaAtor {
+public class TestaRelacionamento3 {
     
     public static void main(String[] args) {
-        //Testando a criação da tabela ator
-    
+        
         //Pegando ogerenciador de acesso ao BD
         EntityManager Gerenciador = JPAUtil.getGerenciador();
         
-        //Criando um Objeto Ator
-        Ator a1 = new Ator();
-        a1.setNome_Ator("Rafael");
-                
+        //Buscar Atores Cadastrados
+        Ator a1 = Gerenciador.find(Ator.class,1);
+        Ator a2 = Gerenciador.find(Ator.class,2);
+        
+        //Buscando um filme
+        Filme f = Gerenciador.find(Filme.class,1);
+        
+        
+        //Associando atores com o filme
+        f.getAtores().add(a1);
+        f.getAtores().add(a2);
+        
         //Iniciar a transação
         Gerenciador.getTransaction().begin();
-        
-        //Alteração que eu quero que ocorra no BD
-        Gerenciador.persist(a1);
         
         //Finalizando a transação
         Gerenciador.getTransaction().commit();
         
         //Fechar o gerenciado
         Gerenciador.close();
-        
     }
+    
 }
