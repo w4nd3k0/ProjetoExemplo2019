@@ -24,6 +24,14 @@ public class Ator {
     private Integer Id_Ator;
     
     private String Nome_Ator;
+    
+    //Construtor vazio da JPA (Obrigatório)
+    public Ator(){}
+    
+    //Construtor
+    public Ator(String n){
+        this.setNome_Ator(n);
+    }
 
     @Override
     public int hashCode() {
@@ -62,7 +70,7 @@ public class Ator {
         this.Id_Ator = Id_Ator;
     }
 
-    public void setNome_Ator(String Nome_Ator) {
+    public final void setNome_Ator(String Nome_Ator) {
         this.Nome_Ator = Nome_Ator;
     }
     

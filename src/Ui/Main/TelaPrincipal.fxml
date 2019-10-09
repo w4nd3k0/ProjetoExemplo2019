@@ -43,9 +43,9 @@
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor></Button>
-                  <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="70.0" prefWidth="112.0" text="Filme" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                  <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#AbrirJanelaFilme" prefHeight="70.0" prefWidth="112.0" text="Filme" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                      <graphic>
-                        <ImageView fitHeight="48.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="48.0" fitWidth="43.0" onDragDetected="#AbrirjanelaFilme" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../Imagens/Filme.png" />
                            </image></ImageView>

@@ -8,8 +8,10 @@ package Dados.Entidades;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -43,7 +45,7 @@ public class Filme {
     
     //Relacionamento n para n 
     @ManyToMany
-    private List<Ator> Atores = new ArrayList<Ator>();
+    private Set<Ator> Atores = new HashSet<Ator>();
     
     @Override
     public int hashCode() {
@@ -92,7 +94,7 @@ public class Filme {
         return genero;
     }
     
-    public List<Ator> getAtores() {
+    public Set<Ator> getAtores() {
         return Atores;
     }
     
@@ -118,7 +120,7 @@ public class Filme {
         this.genero = genero;
     }
     
-    public void setAtores(List<Ator> Atores) {
+    public void setAtores(Set<Ator> Atores) {
         this.Atores = Atores;
     }
 }
