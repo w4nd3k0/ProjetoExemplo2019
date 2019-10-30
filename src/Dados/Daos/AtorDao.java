@@ -7,7 +7,9 @@ package Dados.Daos;
 
 import Dados.Entidades.Ator;
 import Util.JPAUtil;
+import java.util.List;
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 
 /**
  *  
@@ -31,6 +33,24 @@ public class AtorDao {
         //Finalizando a transação
         Gerenciador.getTransaction().commit();
                 
+    }
+    
+    /**
+     * Retorna uma lista com todos os atores 
+     * que estejam cadastrados no banco de dados
+     * @return 
+     */
+    public List<Ator> listar(){
+        
+      //Pegando o gerenciador de acesso ao BD
+      EntityManager gerenciador = JPAUtil.getGerenciador(); 
+      
+      //Criando a consulta ao BD
+      TypedQuery<Ator> consulta = gerenciador.createQuery("Select a from Ator a", Ator.class);
+      
+      //Retornar a lista de atores
+      return consulta.getResultList();
+        
     }
     
 }

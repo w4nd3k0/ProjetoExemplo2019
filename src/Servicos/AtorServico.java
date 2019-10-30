@@ -7,6 +7,7 @@ package Servicos;
 
 import Dados.Daos.AtorDao;
 import Dados.Entidades.Ator;
+import java.util.List;
 import javafx.scene.control.Alert;
 
 /**
@@ -29,6 +30,20 @@ public class AtorServico {
         //Para ser salvado no bando de dados
         Dao.Salvar(a);
                 
+    }
+
+    /**
+     * Solicita a camada DAO para buscar os atores
+     * cadastrados
+     * @return 
+     */
+    public List<Ator> listar(){
+        
+        //Qualquer regra de negócio (se aplicável)
+        
+        //Pedir a DAO para listar e retornar
+        return Dao.listar();
+        
     }
     
 
